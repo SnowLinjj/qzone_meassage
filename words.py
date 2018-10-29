@@ -111,7 +111,6 @@ def get_allQQ(mysession, g_tk, qzonetoken):
 
 
 def saveWords(session, gtk, token, start=0, limit=10,i=0):
-    # print('当前下载第%d页数据'%(start/10+1))
     url = 'https://user.qzone.qq.com/proxy/domain/m.qzone.qq.com' \
           '/cgi-bin/new/get_msgb?uin=%s&hostUin=%s&start=%s' \
           '&s=0.1698142305644994&format=jsonp&%s=10&inCharset=utf-8' \
@@ -127,7 +126,6 @@ def saveWords(session, gtk, token, start=0, limit=10,i=0):
             f.write('总共有%s条留言\n' % total)
         if i == 0:
             f.write('第1页：\n')
-        # f.write('当前下载第%d页数据\n'%(start/10+1))
         for value in j['data']['commentList']:
             cont = str(value['pubtime']) + ' ' + str(value['uin']) + '-' + str(value['nickname']) + ':' + str(
                 value['htmlContent']) + '\n'
